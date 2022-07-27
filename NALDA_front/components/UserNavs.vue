@@ -105,18 +105,18 @@ export default {
   margin-bottom: 72px;
 } */
 
-h2 {
+/* h2 {
   margin: 0;
   font-weight: 400;
   line-height: 1;
   font-size: 24px;
-}
+} */
 
-ul,
+/* ul,
 li {
   margin: 0;
   padding: 0;
-}
+} */
 
 li {
   list-style: none;
@@ -213,6 +213,7 @@ header .modify {
   margin-top: 5%;
   cursor: pointer;
 }
+*/
 
 /* 리스트 */
 .list {

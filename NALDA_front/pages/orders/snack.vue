@@ -6,11 +6,13 @@
         <div class="card h-100" @click="ChoiceMenu(item.author)">
           <img :src="item.download_url" class="card-img-top" alt="..." />
           <div class="card-body">
-            <h5 class="card-title">{{ item.author }}</h5>
+            <div class="card-title">{{ item.author }}</div>
           </div>
         </div>
       </div>
     </div>
+    <StewardessButton />
+    <OrdersButton />
     <ServiceFooter />
   </div>
 </template>
@@ -39,6 +41,12 @@ export default {
       .catch(function (error) {
         console.log(error)
       })
+  },
+  mounted() {
+    setTimeout(() => {
+      const menu = document.querySelector('.footer-body')
+      menu.scrollTop = menu.scrollHeight
+    }, 0)
   },
   methods: {
     ...mapMutations('menu', [
@@ -86,8 +94,11 @@ export default {
   width: 100%;
   height: 20vh;
 }
-img + div {
+.card-body {
+  padding: 15px;
+}
+.card-title {
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 20px;
 }
 </style>
