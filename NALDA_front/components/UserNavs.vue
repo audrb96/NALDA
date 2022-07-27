@@ -104,18 +104,18 @@ export default {
   margin-bottom: 72px;
 } */
 
-h2 {
+/* h2 {
   margin: 0;
   font-weight: 400;
   line-height: 1;
   font-size: 24px;
-}
+} */
 
-ul,
+/* ul,
 li {
   margin: 0;
   padding: 0;
-}
+} */
 
 li {
   list-style: none;
@@ -191,11 +191,11 @@ header .thumb-wrapper {
   animation-delay: 0.5s;
 } */
 
-header .greeting {
+/* header .greeting {
   margin-bottom: 10px;
-}
+} */
 
-header .modify {
+/* header .modify {
   padding: 8px 22px 10px 22px;
   background-color: rgba(0, 0, 0, 0.05);
   display: inline-block;
@@ -203,13 +203,13 @@ header .modify {
   box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08);
   margin-top: 18px;
   cursor: pointer;
-}
+} */
 
 /* 리스트 */
-.list {
+/* .list {
   margin-top: 48px;
   padding-bottom: 30px;
-}
+} */
 
 .list .item {
   display: flex;

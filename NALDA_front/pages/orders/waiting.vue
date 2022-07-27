@@ -1,25 +1,28 @@
 <template>
-  <div class="box">
-    <div class="text-box">
-      가져다 드리겠습니다.<br />
-      잠시만 기다려주세요!<br />
-      {{ selected_goods }}
+  <div class="waiting-container">
+    <HeaderComponent />
+    <div class="box">
+      <div class="text-box">
+        가져다 드리겠습니다.<br />
+        잠시만 기다려주세요!<br />
+      </div>
     </div>
+    <StewardessButton />
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
-
 export default {
-  name: 'GoodsWaiting',
-  computed: {
-    ...mapState('goods', ['selected_goods']),
-  },
+  name: 'OrdersWaiting',
 }
 </script>
 
 <style scoped>
+.waiting-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 .box {
   background-color: white;
   height: 70vh;
