@@ -17,7 +17,7 @@ public class ServiceStock {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "service_stock_id")
-    private String id;
+    private Long id;
 
     private int total;
 
