@@ -5,16 +5,14 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ServiceDto {
+public class OrderListDto {
 
-    private String image;
-    private String serviceName;
-    private String serviceCode;
-    private String serviceClass;
-    private byte[] bytesdata;
+    private String orderCode;
+    private Long orderId;
 
 }

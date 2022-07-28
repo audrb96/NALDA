@@ -1,5 +1,6 @@
 package com.a204.nalda.domain.entity.inflightservice;
 
+
 import com.a204.nalda.domain.entity.airplane.Flight;
 import com.a204.nalda.domain.entity.airplane.Seat;
 import com.a204.nalda.domain.entity.user.User;
@@ -11,6 +12,8 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import static javax.persistence.FetchType.LAZY;
 
@@ -47,4 +50,11 @@ public class Orders {
     @Enumerated(EnumType.STRING)
     private Status status;
 
+    @OneToMany(mappedBy = "orderCode",cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<OrdersCodes> ordersCodes = new ArrayList<>();
+
+    public void addOrdersCode(OrdersCodes ordersCodes) {
+        this.ordersCodes.add(ordersCodes);
+        ordersCodes.changeOrder(this);
+    }
 }
