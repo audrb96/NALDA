@@ -7,7 +7,11 @@ export default {
     },
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      {
+        name: 'viewport',
+        content:
+          'width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1',
+      },
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' },
     ],
@@ -42,6 +46,7 @@ export default {
     'bootstrap-vue/nuxt',
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    'nuxt-vuex-localstorage',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
