@@ -6,7 +6,11 @@
       signup
     </div>-->
     <div class="userprofile-wrap" @click="MoveMypage">
-      <img class="profile-img" src="../static/main/user_profile_w.png" alt="profile-img" />
+      <img
+        class="profile-img"
+        src="../static/main/user_profile_w.png"
+        alt="profile-img"
+      />
       <h3>user</h3>
     </div>
   </div>
@@ -31,7 +35,7 @@ export default {
 
 <style scoped>
 .logo {
-  width: 8%;
+  width: 10%;
   justify-content: center;
   cursor: pointer;
 }

@@ -1,22 +1,30 @@
 <template>
-  <div>
-    <nav id="nav-items">
-      <li style="width: 7vw; height: 15vh" @click="MoveOrders">
-        <span class="order-dessert-span">날다 Home</span>
-      </li>
-      <li id="snack" @click="MoveSnack">
-        <img src="../static/orders/dessert.png" alt="" />
-        <span>간식</span>
-      </li>
-      <li id="alchoal" @click="MoveAlcohol">
-        <img src="../static/orders/drink.png" alt="" />
-        <span>주류</span>
-      </li>
-      <li id="nonalchoal" @click="MoveNonAlcohol">
-        <img src="../static/orders/coffee_cup.png" alt="" />
-        <span>비주류</span>
-      </li>
-    </nav>
+  <div class="service-navbar">
+    <div class="service-navbar-home" @click="MoveOrders">
+      <div>날다</div>
+      <div>Home</div>
+    </div>
+    <div class="service-navbar-snack" @click="MoveSnack">
+      <img src="../static/orders/dessert.png" alt="" />
+      <span style="color: white">간식</span>
+    </div>
+    <div class="service-navbar-alcohol" @click="MoveAlcohol">
+      <img src="../static/orders/drink.png" alt="" />
+      <span style="color: white">주류</span>
+    </div>
+    <div class="service-navbar-nonalcohol" @click="MoveNonAlcohol">
+      <img src="../static/orders/coffee_cup.png" alt="" />
+      <span style="color: white">비주류</span>
+    </div>
+    <div class="service-navbar-profile">
+      <button>뒤로</button>
+      <img
+        src="../static/main/user_profile_w.png"
+        style="width: 15%; height: 60%; margin: 7px"
+        alt=""
+      />
+      <div style="color: white; font-size: 35px">김익명</div>
+    </div>
   </div>
 </template>
 
@@ -30,15 +38,19 @@ export default {
   },
   mounted() {
     if (document.location.pathname === '/orders/snack') {
-      const target = document.getElementById('snack')
+      const target = document.getElementsByClassName('service-navbar-snack')[0]
       target.style.borderBottomStyle = 'solid'
       target.style.borderBottomWidth = '0.5vh'
     } else if (document.location.pathname === '/orders/alcohol') {
-      const target = document.getElementById('alchoal')
+      const target = document.getElementsByClassName(
+        'service-navbar-alcohol'
+      )[0]
       target.style.borderBottomStyle = 'solid'
       target.style.borderBottomWidth = '0.5vh'
     } else {
-      const target = document.getElementById('nonalchoal')
+      const target = document.getElementsByClassName(
+        'service-navbar-nonalcohol'
+      )[0]
       target.style.borderBottomStyle = 'solid'
       target.style.borderBottomWidth = '0.5vh'
     }
@@ -69,35 +81,57 @@ export default {
 </script>
 
 <style scoped>
-#nav-items {
+.service-navbar {
   display: flex;
   width: 100%;
   height: 15vh;
   background-color: rgb(69, 169, 200);
-  gap: 4vw;
 }
-nav li {
-  list-style: none;
+.service-navbar-home {
   display: flex;
   flex-direction: column;
-}
-nav li:hover {
-  cursor: pointer;
-}
-nav img {
-  width: 7vw;
-  height: 10vh;
-}
-.order-dessert-span {
-  font-size: 4vh;
   color: white;
-  text-align: center;
-  line-height: 1em;
-  margin-top: 3vh;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  font-size: 30px;
 }
-img ~ span {
-  height: 5vh;
-  text-align: center;
-  font-size: 3vh;
+.service-navbar-snack {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  font-size: 20px;
+}
+.service-navbar-alcohol {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  font-size: 20px;
+}
+.service-navbar-nonalcohol {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  font-size: 20px;
+}
+.service-navbar-profile {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  /* 아래 크기 조정해서 오른쪽 여백주기 */
+  margin-right: 50px;
+  /* 아래 box사이즈 조정해서 크기조절하기 */
+  flex-basis: 250px;
+}
+.service-navbar img {
+  width: 50%;
+  height: 80%;
 }
 </style>
