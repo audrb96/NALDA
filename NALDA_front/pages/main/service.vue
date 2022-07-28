@@ -46,7 +46,6 @@ export default {
   height: 70vh;
 }
 .service-container-box {
-  text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
