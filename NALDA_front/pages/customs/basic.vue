@@ -18,7 +18,16 @@
     <div class="customform-wrap">
       <div class="customform-main-container">
         <div class="customform-container">
-          <div class="customform-title">여행자 휴대품 신고서</div>
+          <div class="title-container">
+            <div class="title-items">
+              <div class="customform-title">여행자 휴대품 신고서</div>
+              <nuxt-link to="/customs/checkone">
+                <b-button class="next-page" variant="info"
+                  >다음 페이지</b-button
+                >
+              </nuxt-link>
+            </div>
+          </div>
           <div class="custom-info-wrap">
             <table class="custom-info-table">
               <tr>
@@ -248,11 +257,11 @@ export default {
   },
   created() {
     const promise = new Promise((resolve, reject) => {
-      this.callMemberDetail(this.loginMember.username)
       resolve()
     })
 
-    promise.then(() => {
+    promise.then(async () => {
+      await this.callMemberDetail(this.loginMember.username)
       this.loginMember.fullName.lastName &&
         (this.lastName = this.loginMember.fullName.lastName)
       this.loginMember.fullName.middleName &&
@@ -265,13 +274,22 @@ export default {
           '-' +
           this.loginMember.birthday[1] +
           '-' +
-          '0' +
-          this.loginMember.birthday[2])
+          (this.loginMember.birthday[2] < 10
+            ? '0' + this.loginMember.birthday[2]
+            : this.loginMember.birthday[2]))
+      this.memberDetail.passportNum &&
+        (this.passportNum = this.memberDetail.passportNum)
+      this.memberDetail.job && (this.job = this.memberDetail.job)
+      this.memberDetail.address.zipcode &&
+        (this.zipcode = this.memberDetail.address.zipcode)
+      this.memberDetail.address.mainAddress &&
+        (this.mainAddress = this.memberDetail.address.mainAddress)
+      this.memberDetail.address.detailAddress &&
+        (this.detailAddress = this.memberDetail.address.detailAddress)
     })
   },
   methods: {
     find_Postcode() {
-      console.log(this.birthday)
       this.zipcode = ''
       this.mainAddress = ''
       this.detailAddress = ''
@@ -347,6 +365,21 @@ export default {
   font-family: 'twayfly';
 }
 
+.next-page {
+  width: 200%;
+  height: 60%;
+}
+
+.title-items {
+  width: 75%;
+  display: flex;
+  justify-content: space-around;
+}
+.title-container {
+  display: flex;
+  justify-content: end;
+}
+
 .customs-input-container {
   width: 100%;
   height: 70vh;
@@ -388,7 +421,7 @@ export default {
   font-weight: bolder;
   text-align: center;
   color: #004568;
-  margin-bottom: 3%;
+  margin-bottom: 2%;
 }
 .custom-info-wrap {
   padding: 3%;
